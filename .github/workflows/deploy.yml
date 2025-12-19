@@ -1,0 +1,35 @@
+name: 博客自动编译部署
+on:
+  # 推代码到main分支时自动触发
+  push:
+    branches: [ main ]
+  # 支持手动在GitHub网页端触发
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      # 1. 拉取GitHub仓库代码（包含文章、配置、主题）
+      - name: 拉取仓库代码
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0  # 拉取完整提交历史，避免Hugo构建异常
+
+      # 2. 安装和本地版本一致的Hugo（避免编译差异）
+      - name: 安装Hugo v0.152.2
+        uses: peaceiris/actions-hugo@v2
+        with:
+          hugo-version: '0.152.2'
+          extended: true  # 本地版本是extended，必须开启
+
+      # 3. 云端编译md为静态网页
+      - name: 编译静态页
+        run: hugo --minify  # 压缩HTML/CSS，加载更快
+
+      # 4. 部署到GitHub Pages（自动推到gh-pages分支）
+      - name: 部署到GitHub Pages
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./public  # 编译后的静态页目录

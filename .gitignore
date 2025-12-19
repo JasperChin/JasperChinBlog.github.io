@@ -1,2 +1,29 @@
-/.idea/
+# ========== Hugo构建产物（必须忽略，GitHub会自动生成）==========
+public/
+resources/
+.hugo_build.lock
+
+# ========== 系统临时文件 ==========
+# Mac系统
 .DS_Store
+# Windows系统
+Thumbs.db
+desktop.ini
+# Linux系统
+*.swp
+*~
+
+# ========== 编辑器/IDE配置文件 ==========
+# VS Code
+.vscode/
+# JetBrains（IDEA、WebStorm等）
+.idea/
+*.iml
+# Sublime Text
+*.sublime-project
+*.sublime-workspace
+
+# ========== 其他临时文件 ==========
+*.tmp
+*.bak
+*.log
