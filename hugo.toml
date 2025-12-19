@@ -1,4 +1,4 @@
-baseURL = 'https://JasperChinBlog.github.io'
+baseURL = 'https://JasperChin.github.io/JasperChinBlog.github.io/'
 languageCode = 'zh-CN'
 title = 'My New Hugo Site'
 theme = "hugo-PaperMod"
