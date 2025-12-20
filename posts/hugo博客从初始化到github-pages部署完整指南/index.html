@@ -1,0 +1,128 @@
+<!doctype html><html lang=zh-CN><head><meta charset=utf-8><meta http-equiv=X-UA-Compatible content="IE=edge,chrome=1"><title>我的博客</title><meta name=viewport content="width=device-width,minimum-scale=1"><meta name=description content='Hugo博客从初始化到GitHub Pages部署完整指南
+一、准备工作
+1. 安装Hugo（macOS系统，适配你的本地路径）
+# 方式1：通过Homebrew安装（推荐，自动适配arm64架构）
+brew install hugo
+
+# 验证安装成功（查看版本，需≥0.150）
+hugo version
+# 预期输出：hugo v0.152.2+extended+withdeploy darwin/arm64 ...
+
+# 方式2：手动下载（若brew安装失败）
+# 访问 https://github.com/gohugoio/hugo/releases 下载对应macOS版本
+# 解压后将hugo可执行文件放到 /usr/local/bin 目录，再执行 hugo version 验证
+2. 配置GitHub SSH（避免HTTPS认证失败）
+# 检查本地是否已有SSH密钥
+ls -la ~/.ssh
+
+# 若无密钥，生成新SSH密钥（替换为你的GitHub邮箱）
+ssh-keygen -t ed25519 -C "JasperChinChiaoHsin@gmail.com"
+
+# 将SSH密钥添加到ssh-agent
+eval "$(ssh-agent -s)"
+ssh-add ~/.ssh/id_ed25519
+
+# 复制SSH公钥（粘贴到GitHub账户的SSH设置中）
+pbcopy < ~/.ssh/id_ed25519.pub
+
+补充：GitHub添加SSH公钥路径：Settings → SSH and GPG keys → New SSH key → 粘贴公钥并保存。'><meta name=generator content="Hugo 0.152.2"><meta name=robots content="index, follow"><link rel=stylesheet href=/JasperChinBlog.github.io/ananke/css/main.min.efe4d852f731d5d1fbb87718387202a97aafd768cdcdaed0662bbe6982e91824.css><link rel=canonical href=https://JasperChin.github.io/JasperChinBlog.github.io/posts/hugo%E5%8D%9A%E5%AE%A2%E4%BB%8E%E5%88%9D%E5%A7%8B%E5%8C%96%E5%88%B0github-pages%E9%83%A8%E7%BD%B2%E5%AE%8C%E6%95%B4%E6%8C%87%E5%8D%97/><meta property="og:url" content="https://JasperChin.github.io/JasperChinBlog.github.io/posts/hugo%E5%8D%9A%E5%AE%A2%E4%BB%8E%E5%88%9D%E5%A7%8B%E5%8C%96%E5%88%B0github-pages%E9%83%A8%E7%BD%B2%E5%AE%8C%E6%95%B4%E6%8C%87%E5%8D%97/"><meta property="og:site_name" content="我的博客"><meta property="og:title" content="我的博客"><meta property="og:description" content='Hugo博客从初始化到GitHub Pages部署完整指南 一、准备工作 1. 安装Hugo（macOS系统，适配你的本地路径） # 方式1：通过Homebrew安装（推荐，自动适配arm64架构） brew install hugo # 验证安装成功（查看版本，需≥0.150） hugo version # 预期输出：hugo v0.152.2+extended+withdeploy darwin/arm64 ... # 方式2：手动下载（若brew安装失败） # 访问 https://github.com/gohugoio/hugo/releases 下载对应macOS版本 # 解压后将hugo可执行文件放到 /usr/local/bin 目录，再执行 hugo version 验证 2. 配置GitHub SSH（避免HTTPS认证失败） # 检查本地是否已有SSH密钥 ls -la ~/.ssh # 若无密钥，生成新SSH密钥（替换为你的GitHub邮箱） ssh-keygen -t ed25519 -C "JasperChinChiaoHsin@gmail.com" # 将SSH密钥添加到ssh-agent eval "$(ssh-agent -s)" ssh-add ~/.ssh/id_ed25519 # 复制SSH公钥（粘贴到GitHub账户的SSH设置中） pbcopy < ~/.ssh/id_ed25519.pub 补充：GitHub添加SSH公钥路径：Settings → SSH and GPG keys → New SSH key → 粘贴公钥并保存。'><meta property="og:locale" content="zh_CN"><meta property="og:type" content="article"><meta property="article:section" content="posts"><meta itemprop=name content="我的博客"><meta itemprop=description content='Hugo博客从初始化到GitHub Pages部署完整指南 一、准备工作 1. 安装Hugo（macOS系统，适配你的本地路径） # 方式1：通过Homebrew安装（推荐，自动适配arm64架构） brew install hugo # 验证安装成功（查看版本，需≥0.150） hugo version # 预期输出：hugo v0.152.2+extended+withdeploy darwin/arm64 ... # 方式2：手动下载（若brew安装失败） # 访问 https://github.com/gohugoio/hugo/releases 下载对应macOS版本 # 解压后将hugo可执行文件放到 /usr/local/bin 目录，再执行 hugo version 验证 2. 配置GitHub SSH（避免HTTPS认证失败） # 检查本地是否已有SSH密钥 ls -la ~/.ssh # 若无密钥，生成新SSH密钥（替换为你的GitHub邮箱） ssh-keygen -t ed25519 -C "JasperChinChiaoHsin@gmail.com" # 将SSH密钥添加到ssh-agent eval "$(ssh-agent -s)" ssh-add ~/.ssh/id_ed25519 # 复制SSH公钥（粘贴到GitHub账户的SSH设置中） pbcopy < ~/.ssh/id_ed25519.pub 补充：GitHub添加SSH公钥路径：Settings → SSH and GPG keys → New SSH key → 粘贴公钥并保存。'><meta itemprop=wordCount content="298"><meta name=twitter:card content="summary"><meta name=twitter:title content="我的博客"><meta name=twitter:description content='Hugo博客从初始化到GitHub Pages部署完整指南 一、准备工作 1. 安装Hugo（macOS系统，适配你的本地路径） # 方式1：通过Homebrew安装（推荐，自动适配arm64架构） brew install hugo # 验证安装成功（查看版本，需≥0.150） hugo version # 预期输出：hugo v0.152.2+extended+withdeploy darwin/arm64 ... # 方式2：手动下载（若brew安装失败） # 访问 https://github.com/gohugoio/hugo/releases 下载对应macOS版本 # 解压后将hugo可执行文件放到 /usr/local/bin 目录，再执行 hugo version 验证 2. 配置GitHub SSH（避免HTTPS认证失败） # 检查本地是否已有SSH密钥 ls -la ~/.ssh # 若无密钥，生成新SSH密钥（替换为你的GitHub邮箱） ssh-keygen -t ed25519 -C "JasperChinChiaoHsin@gmail.com" # 将SSH密钥添加到ssh-agent eval "$(ssh-agent -s)" ssh-add ~/.ssh/id_ed25519 # 复制SSH公钥（粘贴到GitHub账户的SSH设置中） pbcopy < ~/.ssh/id_ed25519.pub 补充：GitHub添加SSH公钥路径：Settings → SSH and GPG keys → New SSH key → 粘贴公钥并保存。'></head><body class="ma0 avenir bg-near-white production"><header><div class=bg-black><nav class="pv3 ph3 ph4-ns" role=navigation><div class="flex-l center items-center justify-between"><a href=/JasperChinBlog.github.io/ class="f3 fw2 hover-white white-90 dib no-underline">我的博客</a><div class="flex-l items-center"><div class=ananke-socials></div></div></div></nav></div></header><main class=pb7 role=main><article class="flex-l mw7 center ph3 flex-wrap justify-between"><header class="mt4 w-100"><aside class="instapaper_ignoref b helvetica tracked ttu">Posts</aside><div id=sharing class="mt3 ananke-socials"></div><h1 class="f1 athelas mt3 mb1"></h1></header><div class="nested-copy-line-height lh-copy serif f4 nested-links mid-gray pr4-l w-100-l"><h1 id=hugo博客从初始化到github-pages部署完整指南>Hugo博客从初始化到GitHub Pages部署完整指南</h1><h2 id=一准备工作>一、准备工作</h2><h3 id=1-安装hugomacos系统适配你的本地路径>1. 安装Hugo（macOS系统，适配你的本地路径）</h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#75715e># 方式1：通过Homebrew安装（推荐，自动适配arm64架构）</span>
+</span></span><span style=display:flex><span>brew install hugo
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># 验证安装成功（查看版本，需≥0.150）</span>
+</span></span><span style=display:flex><span>hugo version
+</span></span><span style=display:flex><span><span style=color:#75715e># 预期输出：hugo v0.152.2+extended+withdeploy darwin/arm64 ...</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># 方式2：手动下载（若brew安装失败）</span>
+</span></span><span style=display:flex><span><span style=color:#75715e># 访问 https://github.com/gohugoio/hugo/releases 下载对应macOS版本</span>
+</span></span><span style=display:flex><span><span style=color:#75715e># 解压后将hugo可执行文件放到 /usr/local/bin 目录，再执行 hugo version 验证</span>
+</span></span></code></pre></div><h3 id=2-配置github-ssh避免https认证失败>2. 配置GitHub SSH（避免HTTPS认证失败）</h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#75715e># 检查本地是否已有SSH密钥</span>
+</span></span><span style=display:flex><span>ls -la ~/.ssh
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># 若无密钥，生成新SSH密钥（替换为你的GitHub邮箱）</span>
+</span></span><span style=display:flex><span>ssh-keygen -t ed25519 -C <span style=color:#e6db74>&#34;JasperChinChiaoHsin@gmail.com&#34;</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># 将SSH密钥添加到ssh-agent</span>
+</span></span><span style=display:flex><span>eval <span style=color:#e6db74>&#34;</span><span style=color:#66d9ef>$(</span>ssh-agent -s<span style=color:#66d9ef>)</span><span style=color:#e6db74>&#34;</span>
+</span></span><span style=display:flex><span>ssh-add ~/.ssh/id_ed25519
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># 复制SSH公钥（粘贴到GitHub账户的SSH设置中）</span>
+</span></span><span style=display:flex><span>pbcopy &lt; ~/.ssh/id_ed25519.pub
+</span></span></code></pre></div><blockquote><p>补充：GitHub添加SSH公钥路径：Settings → SSH and GPG keys → New SSH key → 粘贴公钥并保存。</p></blockquote><h2 id=二初始化hugo项目适配你的本地路径>二、初始化Hugo项目（适配你的本地路径）</h2><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#75715e># 进入你的代码根目录（固定路径）</span>
+</span></span><span style=display:flex><span>cd /Users/jasper/学习/code/go
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># 初始化Hugo项目（仓库名与GitHub一致）</span>
+</span></span><span style=display:flex><span>hugo new site JasperChinBlog.github.io
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># 进入项目根目录（后续所有操作均在此目录执行）</span>
+</span></span><span style=display:flex><span>cd /Users/jasper/学习/code/go/JasperChinBlog.github.io
+</span></span></code></pre></div><h2 id=三安装主题推荐hugo官方ananke稳定无坑>三、安装主题（推荐Hugo官方Ananke，稳定无坑）</h2><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#75715e># 克隆Ananke主题到themes目录（官方维护，零配置启动）</span>
+</span></span><span style=display:flex><span>git clone https://github.com/theNewDynamic/gohugo-theme-ananke.git themes/ananke
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># 删除主题自带.git目录（避免子模块冲突，当作普通文件提交）</span>
+</span></span><span style=display:flex><span>rm -rf themes/ananke/.git
+</span></span></code></pre></div><h2 id=四核心配置hugotoml>四、核心配置（hugo.toml）</h2><p>替换 <code>/Users/jasper/学习/code/go/JasperChinBlog.github.io/hugo.toml</code> 文件内容：</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-toml data-lang=toml><span style=display:flex><span><span style=color:#75715e># 项目级GitHub Pages地址（格式：https://用户名.github.io/仓库名/）</span>
+</span></span><span style=display:flex><span><span style=color:#a6e22e>baseURL</span> = <span style=color:#e6db74>&#34;https://JasperChin.github.io/JasperChinBlog.github.io/&#34;</span>
+</span></span><span style=display:flex><span><span style=color:#a6e22e>languageCode</span> = <span style=color:#e6db74>&#34;zh-CN&#34;</span>  <span style=color:#75715e># 中文站点配置</span>
+</span></span><span style=display:flex><span><span style=color:#a6e22e>title</span> = <span style=color:#e6db74>&#34;我的博客&#34;</span>       <span style=color:#75715e># 自定义博客标题</span>
+</span></span><span style=display:flex><span><span style=color:#a6e22e>theme</span> = <span style=color:#e6db74>&#34;ananke&#34;</span>        <span style=color:#75715e># 主题名（与themes目录下文件夹名一致）</span>
+</span></span></code></pre></div><h2 id=五创建第一篇文章>五、创建第一篇文章</h2><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#75715e># 在当前项目根目录执行，创建文章（自动生成到content/posts目录）</span>
+</span></span><span style=display:flex><span>hugo new content/posts/我的第一篇预览文章.md
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># 关键操作：编辑文章文件，将draft改为false（否则预览/部署不显示）</span>
+</span></span><span style=display:flex><span><span style=color:#75715e># 编辑路径：/Users/jasper/学习/code/go/JasperChinBlog.github.io/content/posts/我的第一篇预览文章.md</span>
+</span></span><span style=display:flex><span><span style=color:#75715e># 修改内容：draft = false</span>
+</span></span></code></pre></div><h2 id=六本地预览验证效果>六、本地预览（验证效果）</h2><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#75715e># 在项目根目录启动Hugo预览服务</span>
+</span></span><span style=display:flex><span>hugo server
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># 访问本地地址（需与baseURL对应，避免路径错误）</span>
+</span></span><span style=display:flex><span><span style=color:#75715e># 浏览器打开：http://localhost:1313/JasperChinBlog.github.io/</span>
+</span></span></code></pre></div><h2 id=七部署到github-pages>七、部署到GitHub Pages</h2><h3 id=步骤1关联github仓库>步骤1：关联GitHub仓库</h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#75715e># 在项目根目录初始化本地Git仓库</span>
+</span></span><span style=display:flex><span>git init
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># 关联GitHub仓库（替换为你的仓库SSH地址）</span>
+</span></span><span style=display:flex><span>git remote add origin git@github.com:JasperChin/JasperChinBlog.github.io.git
+</span></span></code></pre></div><h3 id=步骤2创建部署配置文件>步骤2：创建部署配置文件</h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#75715e># 在项目根目录创建GitHub Actions目录（自动触发部署）</span>
+</span></span><span style=display:flex><span>mkdir -p .github/workflows
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># 新建部署配置文件</span>
+</span></span><span style=display:flex><span>touch .github/workflows/deploy.yml
+</span></span></code></pre></div><p>将以下内容写入 <code>/Users/jasper/学习/code/go/JasperChinBlog.github.io/.github/workflows/deploy.yml</code>：</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-yaml data-lang=yaml><span style=display:flex><span><span style=color:#f92672>name</span>: <span style=color:#ae81ff>部署博客</span>
+</span></span><span style=display:flex><span><span style=color:#f92672>on</span>:
+</span></span><span style=display:flex><span>  <span style=color:#f92672>push</span>:
+</span></span><span style=display:flex><span>    <span style=color:#f92672>branches</span>: [ <span style=color:#ae81ff>main ] </span> <span style=color:#75715e># 推送到main分支时自动触发部署</span>
+</span></span><span style=display:flex><span><span style=color:#f92672>jobs</span>:
+</span></span><span style=display:flex><span>  <span style=color:#f92672>deploy</span>:
+</span></span><span style=display:flex><span>    <span style=color:#f92672>runs-on</span>: <span style=color:#ae81ff>ubuntu-latest</span>
+</span></span><span style=display:flex><span>    <span style=color:#f92672>steps</span>:
+</span></span><span style=display:flex><span>      - <span style=color:#f92672>name</span>: <span style=color:#ae81ff>拉取仓库代码</span>
+</span></span><span style=display:flex><span>        <span style=color:#f92672>uses</span>: <span style=color:#ae81ff>actions/checkout@v4</span>
+</span></span><span style=display:flex><span>        <span style=color:#f92672>with</span>:
+</span></span><span style=display:flex><span>          <span style=color:#f92672>fetch-depth</span>: <span style=color:#ae81ff>0</span>  <span style=color:#75715e># 拉取完整提交历史，避免编译异常</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>      - <span style=color:#f92672>name</span>: <span style=color:#ae81ff>安装Hugo（与本地版本一致，避免编译差异）</span>
+</span></span><span style=display:flex><span>        <span style=color:#f92672>uses</span>: <span style=color:#ae81ff>peaceiris/actions-hugo@v2</span>
+</span></span><span style=display:flex><span>        <span style=color:#f92672>with</span>:
+</span></span><span style=display:flex><span>          <span style=color:#f92672>hugo-version</span>: <span style=color:#e6db74>&#39;0.152.2&#39;</span>
+</span></span><span style=display:flex><span>          <span style=color:#f92672>extended</span>: <span style=color:#66d9ef>true</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>      - <span style=color:#f92672>name</span>: <span style=color:#ae81ff>编译静态网页（压缩HTML/CSS，提升加载速度）</span>
+</span></span><span style=display:flex><span>        <span style=color:#f92672>run</span>: <span style=color:#ae81ff>hugo --minify</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>      - <span style=color:#f92672>name</span>: <span style=color:#ae81ff>部署到GitHub Pages</span>
+</span></span><span style=display:flex><span>        <span style=color:#f92672>uses</span>: <span style=color:#ae81ff>peaceiris/actions-gh-pages@v4</span>
+</span></span><span style=display:flex><span>        <span style=color:#f92672>with</span>:
+</span></span><span style=display:flex><span>          <span style=color:#f92672>github_token</span>: <span style=color:#ae81ff>${{ secrets.GITHUB_TOKEN }}</span>
+</span></span><span style=display:flex><span>          <span style=color:#f92672>publish_dir</span>: <span style=color:#ae81ff>./public </span> <span style=color:#75715e># 编译后的静态文件目录</span>
+</span></span></code></pre></div><h3 id=步骤3提交并推送代码>步骤3：提交并推送代码</h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#75715e># 在项目根目录创建.gitignore，忽略Hugo构建产物和系统临时文件</span>
+</span></span><span style=display:flex><span>echo -e <span style=color:#e6db74>&#34;public/\nresources/\n.hugo_build.lock\n.DS_Store\nThumbs.db\n.vscode/\n.idea/&#34;</span> &gt; .gitignore
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># 暂存所有文件（配置+主题+文章+部署脚本）</span>
+</span></span><span style=display:flex><span>git add .
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># 提交代码</span>
+</span></span><span style=display:flex><span>git commit -m <span style=color:#e6db74>&#34;初始化Hugo博客+配置自动部署&#34;</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># 推送到GitHub（SSH自动认证，无需输入密码）</span>
+</span></span><span style=display:flex><span>git push -u origin main
+</span></span></code></pre></div><h2 id=八github-pages网页端配置>八、GitHub Pages网页端配置</h2><ol><li>打开GitHub仓库 → 点击顶部<code>Settings</code> → 左侧导航栏找到<code>Pages</code>；</li><li>在<code>Source</code>区域配置：<ul><li>选择<code>Deploy from a branch</code>；</li><li><code>Branch</code>下拉框选择<code>gh-pages</code>；</li><li>目录保持<code>/(root)</code>；</li></ul></li><li>点击<code>Save</code>保存配置；</li><li>将仓库改为<code>Public</code>（免费GitHub账户仅支持公开仓库启用Pages功能）。</li></ol><h2 id=九验证部署结果>九、验证部署结果</h2><p>部署完成后（GitHub Actions显示绿色对勾），等待1-2分钟（生效延迟），访问最终博客地址：
+<code>https://JasperChin.github.io/JasperChinBlog.github.io/</code></p><h2 id=关键避坑总结>关键避坑总结</h2><ol><li>路径统一：所有操作均在 <code>/Users/jasper/学习/code/go/JasperChinBlog.github.io</code> 目录执行，避免路径错乱；</li><li>主题选择：优先使用Hugo官方或维护活跃的主题（如Ananke），避免小众主题的配置兼容问题；</li><li>baseURL格式：项目级仓库必须遵循<code>https://用户名.github.io/仓库名/</code>，否则本地预览和部署后路径错乱；</li><li>认证方式：GitHub已禁用密码认证，必须配置SSH或Personal Access Token（PAT）；</li><li>文章显示：<code>draft = false</code>是文章在预览/部署中显示的必要条件，默认<code>true</code>（草稿状态）不显示；</li><li>仓库权限：免费GitHub账户需将仓库设为Public，私有仓库启用Pages需付费升级；</li><li>主题冲突：下载主题后必须删除自带的<code>.git</code>目录，避免Git子模块嵌套问题。</li></ol><hr><h3 id=使用说明>使用说明</h3><ol><li>复制上述完整内容，保存为<code>Hugo博客部署指南.md</code>文件；</li><li>后续新增文章：在 <code>/Users/jasper/学习/code/go/JasperChinBlog.github.io</code> 目录执行<code>hugo new content/posts/新文章.md</code>，编辑后将<code>draft</code>改为<code>false</code>，提交推送即可自动部署；</li><li>本地调试：修改配置/主题后，在项目根目录执行<code>hugo server</code>预览效果，确认无误再推送。</li></ol><ul class=pa0></ul><div class="mt6 instapaper_ignoref"></div></div></article></main><footer class="bg-black bottom-0 w-100 pa3" role=contentinfo><div class="flex justify-between"><a class="f4 fw4 hover-white white-70 dn dib-ns pv2 ph3 no-underline" href=https://JasperChin.github.io/JasperChinBlog.github.io/>&copy; 我的博客 2025</a><div><div class=ananke-socials></div></div></div></footer></body></html>

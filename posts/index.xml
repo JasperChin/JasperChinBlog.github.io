@@ -1,1 +1,28 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Posts on 我的博客</title><link>https://JasperChin.github.io/JasperChinBlog.github.io/posts/</link><description>Recent content in Posts on 我的博客</description><generator>Hugo</generator><language>zh-CN</language><lastBuildDate>Fri, 19 Dec 2025 21:28:11 +0800</lastBuildDate><atom:link href="https://JasperChin.github.io/JasperChinBlog.github.io/posts/index.xml" rel="self" type="application/rss+xml"/><item><title>我的第一篇预览文章</title><link>https://JasperChin.github.io/JasperChinBlog.github.io/posts/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E9%A2%84%E8%A7%88%E6%96%87%E7%AB%A0/</link><pubDate>Fri, 19 Dec 2025 21:28:11 +0800</pubDate><guid>https://JasperChin.github.io/JasperChinBlog.github.io/posts/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E9%A2%84%E8%A7%88%E6%96%87%E7%AB%A0/</guid><description/></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Posts on 我的博客</title><link>https://JasperChin.github.io/JasperChinBlog.github.io/posts/</link><description>Recent content in Posts on 我的博客</description><generator>Hugo</generator><language>zh-CN</language><atom:link href="https://JasperChin.github.io/JasperChinBlog.github.io/posts/index.xml" rel="self" type="application/rss+xml"/><item><title/><link>https://JasperChin.github.io/JasperChinBlog.github.io/posts/hugo%E5%8D%9A%E5%AE%A2%E4%BB%8E%E5%88%9D%E5%A7%8B%E5%8C%96%E5%88%B0github-pages%E9%83%A8%E7%BD%B2%E5%AE%8C%E6%95%B4%E6%8C%87%E5%8D%97/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://JasperChin.github.io/JasperChinBlog.github.io/posts/hugo%E5%8D%9A%E5%AE%A2%E4%BB%8E%E5%88%9D%E5%A7%8B%E5%8C%96%E5%88%B0github-pages%E9%83%A8%E7%BD%B2%E5%AE%8C%E6%95%B4%E6%8C%87%E5%8D%97/</guid><description>&lt;h1 id="hugo博客从初始化到github-pages部署完整指南"&gt;Hugo博客从初始化到GitHub Pages部署完整指南&lt;/h1&gt;
+&lt;h2 id="一准备工作"&gt;一、准备工作&lt;/h2&gt;
+&lt;h3 id="1-安装hugomacos系统适配你的本地路径"&gt;1. 安装Hugo（macOS系统，适配你的本地路径）&lt;/h3&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# 方式1：通过Homebrew安装（推荐，自动适配arm64架构）&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;brew install hugo
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# 验证安装成功（查看版本，需≥0.150）&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;hugo version
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# 预期输出：hugo v0.152.2+extended+withdeploy darwin/arm64 ...&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# 方式2：手动下载（若brew安装失败）&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# 访问 https://github.com/gohugoio/hugo/releases 下载对应macOS版本&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# 解压后将hugo可执行文件放到 /usr/local/bin 目录，再执行 hugo version 验证&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id="2-配置github-ssh避免https认证失败"&gt;2. 配置GitHub SSH（避免HTTPS认证失败）&lt;/h3&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# 检查本地是否已有SSH密钥&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;ls -la ~/.ssh
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# 若无密钥，生成新SSH密钥（替换为你的GitHub邮箱）&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;ssh-keygen -t ed25519 -C &lt;span style="color:#e6db74"&gt;&amp;#34;JasperChinChiaoHsin@gmail.com&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# 将SSH密钥添加到ssh-agent&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;eval &lt;span style="color:#e6db74"&gt;&amp;#34;&lt;/span&gt;&lt;span style="color:#66d9ef"&gt;$(&lt;/span&gt;ssh-agent -s&lt;span style="color:#66d9ef"&gt;)&lt;/span&gt;&lt;span style="color:#e6db74"&gt;&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;ssh-add ~/.ssh/id_ed25519
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# 复制SSH公钥（粘贴到GitHub账户的SSH设置中）&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;pbcopy &amp;lt; ~/.ssh/id_ed25519.pub
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;blockquote&gt;
+&lt;p&gt;补充：GitHub添加SSH公钥路径：Settings → SSH and GPG keys → New SSH key → 粘贴公钥并保存。&lt;/p&gt;</description></item></channel></rss>
